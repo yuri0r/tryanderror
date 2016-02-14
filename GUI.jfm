@@ -274,6 +274,50 @@ object gUI: TFGUIForm
       Border.MatteBottom = 0
       Border.MatteRight = 0
     end
+    object kalenderbutton: TJButton
+      Tag = 4
+      Left = 8
+      Top = 216
+      Width = 89
+      Height = 25
+      Hint = 'jButton1'
+      Foreground = 3355443
+      Background = 15658734
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = 'Dialog'
+      Font.Style = [fsBold]
+      actionPerformed = 'kalenderbutton_ActionPerformed'
+      Text = 'Kalender'
+      Mnemonic = 0
+      DisplayedMnemonicIndex = 0
+      Selected = False
+      BorderPainted = True
+      FocusPainted = False
+      ContentAreaFilled = True
+      HorizontalAlignment = CENTER
+      VerticalAlignment = CENTER
+      HorizontalTextPosition = RIGHT
+      VerticalTextPosition = CENTER
+      IconTextGap = 4
+      RolloverEnabled = False
+      Border.BorderType = NoBorder
+      Border.LineColor = clBlack
+      Border.LineThickness = 0
+      Border.LineRounded = False
+      Border.EtchHighlightColor = clBlack
+      Border.EtchShadowColor = clBlack
+      Border.Etchtype = 0
+      Border.BevelHighlightColor = clBlack
+      Border.BevelShadowColor = clBlack
+      Border.Beveltype = 0
+      Border.MatteColor = clBlack
+      Border.MatteTop = 0
+      Border.MatteLeft = 0
+      Border.MatteBottom = 0
+      Border.MatteRight = 0
+    end
   end
   object startlogo: TJButton
     Tag = 4
@@ -751,7 +795,7 @@ object gUI: TFGUIForm
     Font.Name = 'Dialog'
     Font.Style = [fsBold]
     actionPerformed = 'notizeinsbutton_ActionPerformed'
-    Text = 'Notiz eins'
+    Text = 'leere Notiz'
     Mnemonic = 0
     DisplayedMnemonicIndex = 0
     Selected = False
@@ -795,7 +839,7 @@ object gUI: TFGUIForm
     Font.Name = 'Dialog'
     Font.Style = [fsBold]
     actionPerformed = 'notizzweibutton_ActionPerformed'
-    Text = 'Notiz zwei'
+    Text = 'leere Notiz'
     Mnemonic = 0
     DisplayedMnemonicIndex = 0
     Selected = False
@@ -839,7 +883,7 @@ object gUI: TFGUIForm
     Font.Name = 'Dialog'
     Font.Style = [fsBold]
     actionPerformed = 'notizdreibutton_ActionPerformed'
-    Text = 'Notiz drei'
+    Text = 'leere Notiz'
     Mnemonic = 0
     DisplayedMnemonicIndex = 0
     Selected = False
@@ -883,7 +927,7 @@ object gUI: TFGUIForm
     Font.Name = 'Dialog'
     Font.Style = [fsBold]
     actionPerformed = 'notizvierbutton_ActionPerformed'
-    Text = 'Notiz vier'
+    Text = 'leere Notiz'
     Mnemonic = 0
     DisplayedMnemonicIndex = 0
     Selected = False

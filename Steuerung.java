@@ -6,10 +6,11 @@ public class Steuerung {
   private Programm programm = new Programm();
   private Hilfe hilfe = new Hilfe();
   public int aktiveNotiz = 1;
-  private Notiz notiz1 = new Notiz("Notizeins.txt");
-  private Notiz notiz2 = new Notiz("Notizzwei.txt");
-  private Notiz notiz3 = new Notiz("Notizdrei.txt");
-  private Notiz notiz4 = new Notiz("Notizvier.txt");
+  private Notiz notiz1 = new Notiz("Notizeins.txt","Notiz1Button.txt");
+  private Notiz notiz2 = new Notiz("Notizzwei.txt","Notiz2Button.txt");
+  private Notiz notiz3 = new Notiz("Notizdrei.txt","Notiz3Button.txt");
+  private Notiz notiz4 = new Notiz("Notizvier.txt","Notiz4Button.txt"); 
+  
   
   //Konstruktor
   public Steuerung(){;
@@ -60,6 +61,16 @@ public class Steuerung {
     } // end of switch
   }
   
+  public String notizTitelLaden(int i){
+    switch (i) {
+      case  1: return notiz1.gettitel();     
+      case  2: return notiz2.gettitel(); 
+      case  3: return notiz3.gettitel(); 
+      case  4: return notiz4.gettitel(); 
+      default: return null; 
+    } // end of switch
+  }
+  
   public void notizSetzen(String s){
     switch (aktiveNotiz) {
       case  1: notiz1.set(s); 
@@ -69,6 +80,20 @@ public class Steuerung {
       case  3: notiz3.set(s);
       break;
       case  4: notiz4.set(s);
+      break;
+      default: break;  
+    } // end of switch
+  }
+  
+  public void notizTitelSetzen(String s){
+    switch (aktiveNotiz) {
+      case  1: notiz1.settitel(s); 
+      break;    
+      case  2: notiz2.settitel(s);
+      break; 
+      case  3: notiz3.settitel(s);
+      break;
+      case  4: notiz4.settitel(s);
       break;
       default: break;  
     } // end of switch
@@ -94,6 +119,7 @@ public class Steuerung {
     notiz3.speichern();
     notiz4.speichern();
   }
+  
   
   //END__NotizsWORLD***
   
