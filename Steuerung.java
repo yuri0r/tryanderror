@@ -1,9 +1,14 @@
 import javax.swing.DefaultListModel;
+
 public class Steuerung {
   //Referenzattribute
-  //private static GUI gui = new GUI("Kanotodo");               //static = Verbindung nur einmalig in eine Richtung 
-  //private Kalender kalender = new Kalender();
   private Todo todo = new Todo();
+  private Programm programm = new Programm();
+  private Hilfe hilfe = new Hilfe();
+  private Notiz notiz1 = new Notiz();
+  private Notiz notiz2 = new Notiz();
+  private Notiz notiz3 = new Notiz();
+  private Notiz notiz4 = new Notiz();
   
   //Konstruktor
   public Steuerung(){;
@@ -12,7 +17,7 @@ public class Steuerung {
   
   //Methoden
   
-  //TODOSWORLD:3******************************************************
+  //TODOSWORLD:3****************************************************************TODO
   
   public void todoEintraghinzufuegen(String text){
     todo.Eintraghinzufuegen(text);
@@ -30,8 +35,27 @@ public class Steuerung {
     todo.loescheAlles();
   }
   
-  //ENDE___TODOSWORLD:3******************************************************
   public void allesSpeichern(){
     todo.speichern();
   }
+  
+  //ENDE___TODOSWORLD:3***
+  
+  //NotizsWORLD*****************************************************************Notiz
+  
+  
+  //END__NotizsWORLD***
+  
+  //ProgrammsWORLD**************************************************************Programm
+  public String programmLaden(){
+    return programm.get();
+  }
+  //ENDE__ProgrammsWORLD****
+  
+  //HilfesWORLD*****************************************************************Hilfe
+  public String hilfeLaden(){
+    return hilfe.get();
+  }
+  //END__HilfesWORLD***
+  
 } // end of class Steuerung
