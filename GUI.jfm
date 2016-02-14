@@ -1,9 +1,9 @@
 object gUI: TFGUIForm
-  Left = 269
-  Top = 1
+  Left = 228
+  Top = 54
   BorderIcons = []
   Caption = 'GUI'
-  ClientHeight = 480
+  ClientHeight = 479
   ClientWidth = 681
   Color = 15658734
   Font.Charset = DEFAULT_CHARSET
@@ -205,31 +205,6 @@ object gUI: TFGUIForm
     HorizontalAlignment = LEFT
     Editable = True
   end
-  object todoAuflistung: TJList
-    Tag = 8
-    Left = 120
-    Top = 56
-    Width = 545
-    Height = 369
-    Hint = 'jList1'
-    Foreground = 3355443
-    Background = clWhite
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Dialog'
-    Font.Style = [fsBold]
-    SelectionMode = MULTIPLE_INTERVAL
-    FixedCellHeight = -1
-    FixedCellWidth = -1
-    LayoutOrientation = VERTICAL
-    SelectionBackground = 15060920
-    SelectionForeground = 3355443
-    VisibleRowCount = 8
-    HorizontalScrollBarPolicy = AS_NEEDED
-    VerticalScrollBarPolicy = ALWAYS
-    SelectedIndex = -1
-  end
   object todoEintraghinzufuegen: TJButton
     Tag = 4
     Left = 552
@@ -276,7 +251,7 @@ object gUI: TFGUIForm
   end
   object todoEintragLoeschen: TJButton
     Tag = 4
-    Left = 240
+    Left = 328
     Top = 432
     Width = 137
     Height = 33
@@ -320,9 +295,9 @@ object gUI: TFGUIForm
   end
   object todoEintragAlleLoeschen: TJButton
     Tag = 4
-    Left = 400
+    Left = 528
     Top = 432
-    Width = 121
+    Width = 137
     Height = 33
     Hint = 'jButton2'
     Foreground = 3355443
@@ -361,5 +336,74 @@ object gUI: TFGUIForm
     Border.MatteLeft = 0
     Border.MatteBottom = 0
     Border.MatteRight = 0
+  end
+  object todoSpeichern: TJButton
+    Tag = 4
+    Left = 120
+    Top = 432
+    Width = 137
+    Height = 33
+    Hint = 'jButton1'
+    Foreground = 3355443
+    Background = 15658734
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = [fsBold]
+    actionPerformed = 'todoSpeichern_ActionPerformed'
+    Text = 'Speichern'
+    Mnemonic = 0
+    DisplayedMnemonicIndex = 0
+    Selected = False
+    BorderPainted = True
+    FocusPainted = False
+    ContentAreaFilled = True
+    HorizontalAlignment = CENTER
+    VerticalAlignment = CENTER
+    HorizontalTextPosition = RIGHT
+    VerticalTextPosition = CENTER
+    IconTextGap = 4
+    RolloverEnabled = False
+    Border.BorderType = NoBorder
+    Border.LineColor = clBlack
+    Border.LineThickness = 0
+    Border.LineRounded = False
+    Border.EtchHighlightColor = clBlack
+    Border.EtchShadowColor = clBlack
+    Border.Etchtype = 0
+    Border.BevelHighlightColor = clBlack
+    Border.BevelShadowColor = clBlack
+    Border.Beveltype = 0
+    Border.MatteColor = clBlack
+    Border.MatteTop = 0
+    Border.MatteLeft = 0
+    Border.MatteBottom = 0
+    Border.MatteRight = 0
+  end
+  object todoAuflistung: TJList
+    Tag = 8
+    Left = 120
+    Top = 64
+    Width = 545
+    Height = 361
+    Hint = 'jList1'
+    Foreground = 3355443
+    Background = clWhite
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Dialog'
+    Font.Style = [fsBold]
+    SelectionMode = MULTIPLE_INTERVAL
+    FixedCellHeight = -1
+    FixedCellWidth = -1
+    LayoutOrientation = VERTICAL
+    SelectionBackground = 15060920
+    SelectionForeground = 3355443
+    VisibleRowCount = 8
+    HorizontalScrollBarPolicy = AS_NEEDED
+    VerticalScrollBarPolicy = ALWAYS
+    SelectedIndex = -1
   end
 end

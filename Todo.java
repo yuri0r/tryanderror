@@ -9,33 +9,46 @@ import java.io.FileWriter;
 public class Todo {
   //Atributte
   private static final File FILE = new File ("Todo.txt");
+  private DefaultListModel lm = new DefaultListModel(); 
   //Referenzattriubte
   
   
   //Konstruktor
   public Todo(){;
-    
+    lm = laden();
   }
   
   //Methoden
-  public boolean todojetztsichtbar() {
+  public boolean jetztsichtbar() {
     return true;
   } 
-  public boolean todojetztnichtsichtbar() {
+  public boolean jetztnichtsichtbar() {
     return false;
   } 
   
-  public void todoEintraghinzufuegen(String todoText){
-    
+  public void Eintraghinzufuegen(String todoText){
+    lm.insertElementAt(todoText,0);
   }
   
-  private void save(DefaultListModel lm) {
+  public DefaultListModel get(){
+    return lm;
+  }
+  
+  public void loescheAlles(){
+    lm.removeAllElements();
+  }
+  
+  public void loeschen(int i){
+    lm.removeElementAt(i);
+  }
+  
+  public void speichern() {
     
     try {
       BufferedWriter out = new BufferedWriter(new FileWriter(FILE));    //Buffered Writer
       
       for(int i = 0; i < lm.getSize(); i++)
-        {
+      {
         out.write((String)lm.getElementAt(i));
         out.newLine();
       }
@@ -48,14 +61,14 @@ public class Todo {
     
   }
   // Funktion Load
-  private DefaultListModel load() {
-    DefaultListModel lm = new DefaultListModel();
+  private  DefaultListModel laden() {
+    
     try{
       BufferedReader in = new BufferedReader(new FileReader(FILE));    //Buffered Reader
       
       String strLine;
       while((strLine = in.readLine()) != null)
-        {
+      {
         lm.addElement(strLine);
       }
       in.close();

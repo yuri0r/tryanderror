@@ -14,19 +14,20 @@ public class GUI extends Frame {
   private ImageIcon startlogoIcon = new ImageIcon("Startlogo.JPG");
   
   
-  
   private JTextField todoEingabefeld = new JTextField();
-  private JList todoAuflistung = new JList();
-  private DefaultListModel todoAuflistungModel = new DefaultListModel();
-  private JScrollPane todoAuflistungScrollPane = new JScrollPane(todoAuflistung);
   private JButton todoEintraghinzufuegen = new JButton();
   private JButton todoEintragLoeschen = new JButton();
   private JButton todoEintragAlleLoeschen = new JButton(); 
   
-  lm = new DefaultListModel();
+  
   
   //Referenzattribute
-  private static Steuerung steuerung = new Steuerung();
+  private Steuerung steuerung = new Steuerung();
+  private DefaultListModel lm = steuerung.todoLaden();
+  private JButton todoSpeichern = new JButton();
+  private JList todoAuflistung = new JList();
+  private DefaultListModel todoAuflistungModel = new DefaultListModel();
+  private JScrollPane todoAuflistungScrollPane = new JScrollPane(todoAuflistung);
   // Ende Attribute
   
   public GUI(String title) { 
@@ -99,11 +100,8 @@ public class GUI extends Frame {
     todoEingabefeld.setVisible(false);
     cp.add(todoEingabefeld);
     
-    todoAuflistung.setModel(todoAuflistungModel);
-    todoAuflistungScrollPane.setBounds(120, 56, 545, 369);
-    todoAuflistung.setVisible(false);
-    todoAuflistungScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-    cp.add(todoAuflistungScrollPane);
+    
+    
     
     
     todoEintraghinzufuegen.setBounds(552, 16, 113, 41);
@@ -117,7 +115,7 @@ public class GUI extends Frame {
     todoEintraghinzufuegen.setVisible(false);
     cp.add(todoEintraghinzufuegen);
     
-    todoEintragLoeschen.setBounds(240, 432, 137, 33);
+    todoEintragLoeschen.setBounds(328, 432, 137, 33);
     todoEintragLoeschen.setText("Löschen");
     todoEintragLoeschen.setMargin(new Insets(2, 2, 2, 2));
     todoEintragLoeschen.addActionListener(new ActionListener() { 
@@ -128,7 +126,7 @@ public class GUI extends Frame {
     todoEintragLoeschen.setVisible(false);
     cp.add(todoEintragLoeschen);
     
-    todoEintragAlleLoeschen.setBounds(400, 432, 121, 33);
+    todoEintragAlleLoeschen.setBounds(528, 432, 137, 33);
     todoEintragAlleLoeschen.setText("Alle Löschen");
     todoEintragAlleLoeschen.setMargin(new Insets(2, 2, 2, 2));
     todoEintragAlleLoeschen.addActionListener(new ActionListener() { 
@@ -138,6 +136,19 @@ public class GUI extends Frame {
     });
     todoEintragAlleLoeschen.setVisible(false);
     cp.add(todoEintragAlleLoeschen);
+    todoSpeichern.setBounds(120, 432, 137, 33);
+    todoSpeichern.setText("Speichern");
+    todoSpeichern.setMargin(new Insets(2, 2, 2, 2));
+    todoSpeichern.addActionListener(new ActionListener() { 
+      public void actionPerformed(ActionEvent evt) { 
+        todoSpeichern_ActionPerformed(evt);
+      }
+    });
+    cp.add(todoSpeichern);
+    todoAuflistung.setModel(todoAuflistungModel);
+    todoAuflistungScrollPane.setBounds(120, 64, 545, 361);
+    todoAuflistungScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+    cp.add(todoAuflistungScrollPane);
     // Ende Komponenten
     
     setVisible(true);                                  //Sichtbarkeit: aus(=false)/an(=true)
@@ -147,43 +158,56 @@ public class GUI extends Frame {
   
   // Anfang Methoden
   public void todobutton_ActionPerformed(ActionEvent evt) {
-    //sichtbar                                                      
+    //sichtbar 
     todoEingabefeld.setVisible(steuerung.todojetztsichtbar());
     todoEintraghinzufuegen.setVisible(steuerung.todojetztsichtbar());
     todoEintragLoeschen.setVisible(steuerung.todojetztsichtbar());
     todoEintragAlleLoeschen.setVisible(steuerung.todojetztsichtbar());
     
+    todoAuflistung.setVisible(true);
+    todoAuflistung.setModel(steuerung.todoLaden());
+    
     //nicht sichtbar
     startlogo.setVisible(steuerung.todojetztnichtsichtbar());
     
   } // end of todobutton_ActionPerformed
-
+  
   public void logoklein_ActionPerformed(ActionEvent evt) {
     // nicht notwenig - nur Bild!
   } // end of logoklein_ActionPerformed
-
+  
   public void startlogo_ActionPerformed(ActionEvent evt) {
     // nicht notwenig - nur Bild!
   } // end of startlogo_ActionPerformed
-
+  
   public void todoEintraghinzufuegen_ActionPerformed(ActionEvent evt) {
     steuerung.todoEintraghinzufuegen(todoEingabefeld.getText());
+    todoEingabefeld.setText("");
   } // end of todoEintraghinzufuegen_ActionPerformed
-
-  public void todoEintragLoeschen_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
+  
+  public void todoEintragLoeschen_ActionPerformed(ActionEvent evt) {    
+    int pos = todoAuflistung.getSelectedIndex();    
+    steuerung.todoLoeschen(pos);    
   } // end of todoEintragLoeschen_ActionPerformed
-
+  
   public void todoEintragAlleLoeschen_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
+    steuerung.todoLoescheAlles();
   } // end of todoEintragAlleLoeschen_ActionPerformed
-
+  
+  public void todoSpeichern_ActionPerformed(ActionEvent evt) {
+    steuerung.allesSpeichern();
+  } // end of todoEingabefeld_ActionPerformed
+  // end of todoSpeichern_ActionPerformed
+  
+  public void todoEingabefeld_ActionPerformed(ActionEvent evt) {
+    // TODO hier Quelltext einfügen
+  } // end of todoEingabefeld_ActionPerformed
+  
   // Ende Methoden
   
   public static void main(String[] args) {
-    new Steuerung();
+    new GUI("Kanotodo");
     
-    lm = todo.load();
     
   } // end of main
   
