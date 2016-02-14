@@ -8,9 +8,9 @@ public class GUI extends Frame {
   private JPanel menue = new JPanel(null, true);
   private JButton todobutton = new JButton();
   private JButton logoklein = new JButton();
-  private ImageIcon logokleinIcon = new ImageIcon("images/logok.jpg");
+  private ImageIcon logokleinIcon = new ImageIcon("logok.jpg");
   private JButton startlogo = new JButton();
-  private ImageIcon startlogoIcon = new ImageIcon("images/Startlogo.JPG");
+  private ImageIcon startlogoIcon = new ImageIcon("Startlogo.JPG");
   
   
   
