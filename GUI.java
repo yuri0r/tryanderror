@@ -215,6 +215,7 @@ public class GUI extends Frame {
     notiztextfeldScrollPane.setBounds(152, 56, 417, 409);
     notiztextfeldScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
     notiztextfeldScrollPane.setVisible(false);
+    notiztextfeld.setText("wähle eine Notiz!");
     cp.add(notiztextfeldScrollPane);
     
     notiztitelfeld.setBounds(152, 8, 417, 33);
@@ -406,7 +407,7 @@ public class GUI extends Frame {
   } 
   
   
-                  //Notiz*******************************************************Notiz
+  //Notiz*******************************************************Notiz
   public void notizbutton_ActionPerformed(ActionEvent evt) {
     //sichtbar
     notiztitelfeld.setVisible(true); 
@@ -438,27 +439,32 @@ public class GUI extends Frame {
   } // end of notiztitelhinzufuegenbutton_ActionPerformed
 
   public void notizspeichernbutton_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
+    steuerung.notizSetzen(notiztextfeld.getText());
   } // end of notizspeichernbutton_ActionPerformed
-
+  
   public void notizeinsbutton_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
+    notiztextfeld.setText(steuerung.notizLaden(1));
+    steuerung.setAktiveNotiz(1);
   } // end of notizeinsbutton_ActionPerformed
-
+  
   public void notizzweibutton_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
+    notiztextfeld.setText(steuerung.notizLaden(2));
+    steuerung.setAktiveNotiz(2);
   } // end of notizzweibutton_ActionPerformed
 
   public void notizdreibutton_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
+    notiztextfeld.setText(steuerung.notizLaden(3));
+    steuerung.setAktiveNotiz(3);
   } // end of notizdreibutton_ActionPerformed
 
   public void notizvierbutton_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
+    notiztextfeld.setText(steuerung.notizLaden(4));
+    steuerung.setAktiveNotiz(4);
   } // end of notizvierbutton_ActionPerformed
 
   public void notizloeschenbutton_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
+    steuerung.notizLoeschen();
+    notiztextfeld.setText("");
   } // end of notizloeschenbutton_ActionPerformed
 
                          //Programm*********************************************Programm
