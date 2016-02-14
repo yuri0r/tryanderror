@@ -1,10 +1,10 @@
 object gUI: TFGUIForm
-  Left = 226
-  Top = 5
+  Left = 189
+  Top = 41
   BorderIcons = []
   Caption = 'GUI'
-  ClientHeight = 479
-  ClientWidth = 681
+  ClientHeight = 488
+  ClientWidth = 697
   Color = 15658734
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -653,7 +653,7 @@ object gUI: TFGUIForm
   end
   object programmueberschrift: TJLabel
     Tag = 1
-    Left = 232
+    Left = 208
     Top = 8
     Width = 330
     Height = 49
