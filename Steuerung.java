@@ -13,12 +13,6 @@ public class Steuerung {
   //Methoden
   
   //TODOSWORLD:3******************************************************
-  public boolean todojetztsichtbar() {
-    return todo.jetztsichtbar();
-  } 
-  public boolean todojetztnichtsichtbar() {
-    return todo.jetztnichtsichtbar();
-  } 
   
   public void todoEintraghinzufuegen(String text){
     todo.Eintraghinzufuegen(text);

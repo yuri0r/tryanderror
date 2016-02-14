@@ -19,12 +19,6 @@ public class Todo {
   }
   
   //Methoden
-  public boolean jetztsichtbar() {
-    return true;
-  } 
-  public boolean jetztnichtsichtbar() {
-    return false;
-  } 
   
   public void Eintraghinzufuegen(String todoText){
     lm.insertElementAt(todoText,0);
