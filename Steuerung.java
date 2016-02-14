@@ -17,4 +17,8 @@ public class Steuerung {
   public boolean todojetztnichtsichtbar() {
     return todo.todojetztnichtsichtbar();
   } 
+  
+  public int todoEintraghinzufuegen(){
+    return todo.todoEintraghinzufuegen();
+    }
 } // end of class Steuerung

@@ -1,8 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.event.*;
 import javax.swing.*;
+import javax.swing.DefaultListModel;
+
 public class GUI extends Frame {
   // Anfang Attribute
   private JPanel menue = new JPanel(null, true);
@@ -18,11 +19,11 @@ public class GUI extends Frame {
   private JList todoAuflistung = new JList();
   private DefaultListModel todoAuflistungModel = new DefaultListModel();
   private JScrollPane todoAuflistungScrollPane = new JScrollPane(todoAuflistung);
-  private JScrollPane todoScrollbalken = new JScrollPane();
   private JButton todoEintraghinzufuegen = new JButton();
   private JButton todoEintragLoeschen = new JButton();
   private JButton todoEintragAlleLoeschen = new JButton(); 
   
+  lm = new DefaultListModel();
   
   //Referenzattribute
   private static Steuerung steuerung = new Steuerung();
@@ -99,13 +100,11 @@ public class GUI extends Frame {
     cp.add(todoEingabefeld);
     
     todoAuflistung.setModel(todoAuflistungModel);
-    todoAuflistungScrollPane.setBounds(120, 56, 505, 369);
+    todoAuflistungScrollPane.setBounds(120, 56, 545, 369);
     todoAuflistung.setVisible(false);
+    todoAuflistungScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
     cp.add(todoAuflistungScrollPane);
     
-    todoScrollbalken.setBounds(624, 56, 41, 369);
-    todoScrollbalken.setVisible(false);
-    cp.add(todoScrollbalken);
     
     todoEintraghinzufuegen.setBounds(552, 16, 113, 41);
     todoEintraghinzufuegen.setText("Hinzufügen");
@@ -150,8 +149,6 @@ public class GUI extends Frame {
   public void todobutton_ActionPerformed(ActionEvent evt) {
     //sichtbar                                                      
     todoEingabefeld.setVisible(steuerung.todojetztsichtbar());
-    todoScrollbalken.setVisible(steuerung.todojetztsichtbar());
-    todoScrollbalken.setVisible(steuerung.todojetztsichtbar());
     todoEintraghinzufuegen.setVisible(steuerung.todojetztsichtbar());
     todoEintragLoeschen.setVisible(steuerung.todojetztsichtbar());
     todoEintragAlleLoeschen.setVisible(steuerung.todojetztsichtbar());
@@ -170,7 +167,7 @@ public class GUI extends Frame {
   } // end of startlogo_ActionPerformed
 
   public void todoEintraghinzufuegen_ActionPerformed(ActionEvent evt) {
-    // TODO hier Quelltext einfügen
+    steuerung.todoEintraghinzufuegen(todoEingabefeld.getText());
   } // end of todoEintraghinzufuegen_ActionPerformed
 
   public void todoEintragLoeschen_ActionPerformed(ActionEvent evt) {
@@ -185,6 +182,8 @@ public class GUI extends Frame {
   
   public static void main(String[] args) {
     new Steuerung();
+    
+    lm = todo.load();
     
   } // end of main
   

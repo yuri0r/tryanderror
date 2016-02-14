@@ -209,7 +209,7 @@ object gUI: TFGUIForm
     Tag = 8
     Left = 120
     Top = 56
-    Width = 505
+    Width = 545
     Height = 369
     Hint = 'jList1'
     Foreground = 3355443
@@ -227,42 +227,8 @@ object gUI: TFGUIForm
     SelectionForeground = 3355443
     VisibleRowCount = 8
     HorizontalScrollBarPolicy = AS_NEEDED
-    VerticalScrollBarPolicy = AS_NEEDED
+    VerticalScrollBarPolicy = ALWAYS
     SelectedIndex = -1
-  end
-  object todoScrollbalken: TJScrollPane
-    Tag = 11
-    Left = 624
-    Top = 56
-    Width = 41
-    Height = 369
-    Hint = 'jScrollPane1'
-    Foreground = 3355443
-    Background = 15658734
-    Font.Charset = DEFAULT_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = 'Dialog'
-    Font.Style = [fsBold]
-    HorizontalScrollBarPolicy = AS_NEEDED
-    VerticalScrollBarPolicy = AS_NEEDED
-    Autoscrolls = False
-    WheelScrollingEnabled = True
-    Border.BorderType = NoBorder
-    Border.LineColor = clBlack
-    Border.LineThickness = 0
-    Border.LineRounded = False
-    Border.EtchHighlightColor = clBlack
-    Border.EtchShadowColor = clBlack
-    Border.Etchtype = 0
-    Border.BevelHighlightColor = clBlack
-    Border.BevelShadowColor = clBlack
-    Border.Beveltype = 0
-    Border.MatteColor = clBlack
-    Border.MatteTop = 0
-    Border.MatteLeft = 0
-    Border.MatteBottom = 0
-    Border.MatteRight = 0
   end
   object todoEintraghinzufuegen: TJButton
     Tag = 4
