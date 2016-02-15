@@ -5,7 +5,7 @@ public class Steuerung {
   private Todo todo = new Todo();
   private Programm programm = new Programm();
   private Hilfe hilfe = new Hilfe();
-  public int aktiveNotiz = 1;
+  public int aktiveNotiz;
   private Notiz notiz1 = new Notiz("Notizeins.txt","Notiz1Button.txt");
   private Notiz notiz2 = new Notiz("Notizzwei.txt","Notiz2Button.txt");
   private Notiz notiz3 = new Notiz("Notizdrei.txt","Notiz3Button.txt");
@@ -24,17 +24,17 @@ public class Steuerung {
   }
   
   public void setAktiveNotiz(int i){
-    aktiveNotiz = i;
+    aktiveNotiz = i;                        //Zahl ändern -welche die aktive Notiz ist
   }
   
   //TODOSWORLD:3****************************************************************TODO
   
-  public void todoEintraghinzufuegen(String text){
-    todo.Eintraghinzufuegen(text);
+  public void todoEintraghinzufuegen(String text){    //Text aus Feld auf Variable text speichern
+    todo.Eintraghinzufuegen(text);                    //Methode in der Klasse Todo aufrufen und text übergeben
   }
   
   public DefaultListModel todoLaden(){
-    return todo.get();
+    return todo.get();                                //Aufruf der Methode get()- Eintrag zurückgeben
   }
   
   public void todoLoeschen(int i){
@@ -51,8 +51,8 @@ public class Steuerung {
   
   //NotizsWORLD*****************************************************************Notiz
   
-  public String notizLaden(int i){
-    switch (i) {
+  public String notizLaden(){                    //laden auf Textfeld
+    switch (aktiveNotiz) {
       case  1: return notiz1.get();     
       case  2: return notiz2.get(); 
       case  3: return notiz3.get(); 
@@ -61,6 +61,17 @@ public class Steuerung {
     } // end of switch
   }
   
+  public String notizTitelLaden(){
+    switch (aktiveNotiz) {                          //aktiveNotiz: nimmt aktuell ausgewählt Notiz
+      case  1: return notiz1.gettitel();     
+      case  2: return notiz2.gettitel(); 
+      case  3: return notiz3.gettitel(); 
+      case  4: return notiz4.gettitel(); 
+      default: return null; 
+    } // end of switch
+  }
+                                                  
+                                                  //Überladen der Methode -hier: Parameter wird übergeben ->beim refresh() damit er alle durchaktualisiert
   public String notizTitelLaden(int i){
     switch (i) {
       case  1: return notiz1.gettitel();     
@@ -71,7 +82,7 @@ public class Steuerung {
     } // end of switch
   }
   
-  public void notizSetzen(String s){
+  public void notizSetzen(String s){                //Notiztext wird auf Variable s gespeichert  (in Notiz dann auf txt-Datei)
     switch (aktiveNotiz) {
       case  1: notiz1.set(s); 
       break;    
@@ -125,7 +136,7 @@ public class Steuerung {
   
   //ProgrammsWORLD**************************************************************Programm
   public String programmLaden(){
-    return programm.get();
+    return programm.get();               //text für Textfelf holen
   }
   //ENDE__ProgrammsWORLD****
   

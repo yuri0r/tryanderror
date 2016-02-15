@@ -66,11 +66,11 @@ public class GUI extends Frame {
     int frameWidth = 713; 
     int frameHeight = 526;
     setSize(frameWidth, frameHeight);
-    Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
+    Dimension d = Toolkit.getDefaultToolkit().getScreenSize(); 
     int x = (d.width - getSize().width) / 2;
     int y = (d.height - getSize().height) / 2;
     setLocation(x, y);
-    setResizable(false);                                      //false = MaximierButton ausblenden
+    setResizable(false);                          //false = MaximierButton ausblenden
     Panel cp = new Panel(null);
     add(cp);
     
@@ -79,46 +79,43 @@ public class GUI extends Frame {
     
     
     //Menueleiste***************************************************************Menü
-    menue.setBounds(0, 0, 105, 497);
-    menue.setOpaque(true);
-    menue.setBackground(Color.GRAY);
-    cp.add(menue);
+    menue.setBounds(0, 0, 105, 497);  //Grenzen setzten
+    menue.setOpaque(true);            //Opaque=Undurchsichtig
+    menue.setBackground(Color.GRAY);  //Hintergrundfarbe setzten
+    cp.add(menue);                    //Komponente auf Panel hinzufügen
     
     logoklein.setBounds(0, 16, 105, 81);
     logoklein.setText("");
-    logoklein.setMargin(new Insets(2, 2, 2, 2));
-    logoklein.addActionListener(new ActionListener() { 
-      public void actionPerformed(ActionEvent evt) { 
-        logoklein_ActionPerformed(evt);
-      }
-    });
-    logoklein.setIcon(logokleinIcon);
+    logoklein.setMargin(new Insets(2, 2, 2, 2));    //Grenzen setzten
+    logoklein.setIcon(logokleinIcon);               //Bild einfügen -Variable mit Bilddatei aus Attributen oben
     logoklein.setBackground(Color.GRAY);
-    logoklein.setBorderPainted(false);
+    logoklein.setBorderPainted(false);              //Ränder nicht malen
+    logoklein.setVisible(true);                     //Sichtbarkeit des Buttons: true
     menue.add(logoklein);
     
     //Buttons***********
     todobutton.setBounds(8, 136, 89, 25);
     todobutton.setText("Todo-Liste");
     todobutton.setMargin(new Insets(2, 2, 2, 2));
-    todobutton.addActionListener(new ActionListener() { 
-      public void actionPerformed(ActionEvent evt) { 
-        todobutton_ActionPerformed(evt);
+    todobutton.setBorderPainted(true);
+    todobutton.setContentAreaFilled(true);            //Fläsche hinter Text gefüllt: true
+    todobutton.addActionListener(new ActionListener() {      //ActionListener: wartet darauf, dass Maus den Button anklickt
+      public void actionPerformed(ActionEvent evt) {          //wenn klick->
+        todobutton_ActionPerformed(evt);                     //          Methode unten ausführen
       }
     });
-    todobutton.setBorderPainted(true);
-    todobutton.setContentAreaFilled(true);
+    todobutton.setVisible(true);                     
     menue.add(todobutton);
     
     notizbutton.setBounds(8, 176, 89, 25);
     notizbutton.setText("Notizen");
     notizbutton.setMargin(new Insets(2, 2, 2, 2));
-    notizbutton.addActionListener(new ActionListener() { 
-      public void actionPerformed(ActionEvent evt) { 
-        notizbutton_ActionPerformed(evt);
+    notizbutton.addActionListener(new ActionListener() {      
+      public void actionPerformed(ActionEvent evt) {          
+        notizbutton_ActionPerformed(evt);                     
       }
     });
-    notizbutton.setVisible(true);
+    notizbutton.setVisible(true);                     
     menue.add(notizbutton);
     
     kalenderbutton.setBounds(8, 216, 89, 25);
@@ -158,18 +155,12 @@ public class GUI extends Frame {
     startlogo.setBounds(104, 0, 593, 497);
     startlogo.setText("");
     startlogo.setMargin(new Insets(2, 2, 2, 2));
-    startlogo.addActionListener(new ActionListener() { 
-      public void actionPerformed(ActionEvent evt) { 
-        startlogo_ActionPerformed(evt);
-      }
-    });
     startlogo.setBorderPainted(false);
     startlogo.setIcon(startlogoIcon);
-    startlogo.setVisible(true);                                //Sichtbarkeit: aus(=false)/an(=true)
+    startlogo.setVisible(true);                                
     startlogo.setContentAreaFilled(true);
     startlogo.setBackground(Color.GRAY);
-    
-    cp.add(startlogo);
+    cp.add(startlogo);    
     
     //**************************************************************************Todo
     todoEingabefeld.setBounds(152, 16, 385, 41);
@@ -178,7 +169,7 @@ public class GUI extends Frame {
     
     
     todoEintraghinzufuegen.setBounds(536, 16, 113, 41);
-    todoEintraghinzufuegen.setText("Hinzufügen");
+    todoEintraghinzufuegen.setText("Hinzufügen");                   //Text setzten
     todoEintraghinzufuegen.setMargin(new Insets(2, 2, 2, 2));
     todoEintraghinzufuegen.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
@@ -224,7 +215,7 @@ public class GUI extends Frame {
     todoAuflistung.setModel(todoAuflistungModel);
     todoAuflistungScrollPane.setBounds(152, 64, 385, 361);
     todoAuflistungScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-    todoAuflistungScrollPane.setVisible(false);                                  //?
+    todoAuflistungScrollPane.setVisible(false);                                 
     cp.add(todoAuflistungScrollPane);
     
     //**************************************************************************Notizen
@@ -329,7 +320,7 @@ public class GUI extends Frame {
     programmtextScrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
     programmtextScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
     programmtextScrollPane.setVisible(false);
-    programmtext.setEditable(false);
+    programmtext.setEditable(false);                 
     programmtext.setText("");
     programmtext.setWrapStyleWord(true);
     cp.add(programmtextScrollPane);
@@ -369,18 +360,11 @@ public class GUI extends Frame {
   
   
   // Anfang Methoden***************************************************************************************Methoden
-  public void logoklein_ActionPerformed(ActionEvent evt) {                                                 //Kalender später sichtbarkeit ergänzen!!!!!!
-    // nicht notwenig - nur Bild!
-  } 
-  
-  public void startlogo_ActionPerformed(ActionEvent evt) {
-    // nicht notwenig - nur Bild!
-  } 
   
   
   //TODO************************************************************************TODO
-  public void todobutton_ActionPerformed(ActionEvent evt) {
-    //sichtbar 
+  public void todobutton_ActionPerformed(ActionEvent evt) { //bei *klick* auf den Button ->
+    //sichtbar                                             //aufgelistete Komponenten sichtbar machen
     todoEingabefeld.setVisible(true);
     todoEintraghinzufuegen.setVisible(true);
     todoEintragLoeschen.setVisible(true);
@@ -389,7 +373,7 @@ public class GUI extends Frame {
     todoAuflistungScrollPane.setVisible(true); 
     todoAuflistung.setModel(steuerung.todoLaden());
     
-    //nicht sichtbar
+    //nicht sichtbar                                     //aufgelistete Komponenten unsichtbar machen
     startlogo.setVisible(false);
     programmtextScrollPane.setVisible(false); 
     programmueberschrift.setVisible(false);
@@ -407,13 +391,13 @@ public class GUI extends Frame {
   } 
   
   public void todoEintraghinzufuegen_ActionPerformed(ActionEvent evt) {
-    steuerung.todoEintraghinzufuegen(todoEingabefeld.getText());
-    todoEingabefeld.setText("");
+    steuerung.todoEintraghinzufuegen(todoEingabefeld.getText());     //Methode in Steuerung aufrufen und Text von dem Feld übergeben
+    todoEingabefeld.setText("");                                     //auf das Feld vorhandenen Text laden
   } 
   
   public void todoEintragLoeschen_ActionPerformed(ActionEvent evt) {    
-    int pos = todoAuflistung.getSelectedIndex();    
-    steuerung.todoLoeschen(pos);    
+    int pos = todoAuflistung.getSelectedIndex();                    //Ausgewählten Eintrag ermitteln und auf Variable pos speichern
+    steuerung.todoLoeschen(pos);                                    //Methode zum Eintrag löschen aufrufen und Position übergeben
   } 
   
   public void todoEintragAlleLoeschen_ActionPerformed(ActionEvent evt) {
@@ -423,11 +407,7 @@ public class GUI extends Frame {
   public void todoSpeichern_ActionPerformed(ActionEvent evt) {
     steuerung.allesSpeichern();
   } 
-  
-  
-  public void todoEingabefeld_ActionPerformed(ActionEvent evt) {
-    
-  } 
+   
   
   
   //Notiz***********************************************************************Notiz
@@ -457,37 +437,37 @@ public class GUI extends Frame {
     hilfeueberschrift.setVisible(false);
   } 
   
-  public void notiztitelhinzufuegenbutton_ActionPerformed(ActionEvent evt) {
-    steuerung.notizTitelSetzen(notiztitelfeld.getText());
-    refresh();                                               
+  public void notiztitelhinzufuegenbutton_ActionPerformed(ActionEvent evt) {       //alte Notiz "überschreiben"
+    steuerung.notizTitelSetzen(notiztitelfeld.getText());             //Methode in Steuerung aufrufen und Titeltext übergeben
+    refresh();                                                        //Buttontitel neu laden
   } 
   
   public void notizspeichernbutton_ActionPerformed(ActionEvent evt) {
-    steuerung.notizSetzen(notiztextfeld.getText());
+    steuerung.notizSetzen(notiztextfeld.getText());                  //Methode in Steuerung aufrufen und notiztext übergeben
   } 
   
   public void notizeinsbutton_ActionPerformed(ActionEvent evt) {
     steuerung.setAktiveNotiz(1);
-    notiztextfeld.setText(steuerung.notizLaden(1));
-    notiztitelfeld.setText(steuerung.notizTitelLaden(1));
+    notiztextfeld.setText(steuerung.notizLaden());
+    notiztitelfeld.setText(steuerung.notizTitelLaden());
   } 
   
   public void notizzweibutton_ActionPerformed(ActionEvent evt) {
     steuerung.setAktiveNotiz(2);
-    notiztextfeld.setText(steuerung.notizLaden(2));
-    notiztitelfeld.setText(steuerung.notizTitelLaden(2));
+    notiztextfeld.setText(steuerung.notizLaden());
+    notiztitelfeld.setText(steuerung.notizTitelLaden());
   } 
   
   public void notizdreibutton_ActionPerformed(ActionEvent evt) {
     steuerung.setAktiveNotiz(3);
-    notiztextfeld.setText(steuerung.notizLaden(3));
-    notiztitelfeld.setText(steuerung.notizTitelLaden(3));
+    notiztextfeld.setText(steuerung.notizLaden());
+    notiztitelfeld.setText(steuerung.notizTitelLaden());
   } 
   
   public void notizvierbutton_ActionPerformed(ActionEvent evt) {
     steuerung.setAktiveNotiz(4);
-    notiztextfeld.setText(steuerung.notizLaden(4));
-    notiztitelfeld.setText(steuerung.notizTitelLaden(4));
+    notiztextfeld.setText(steuerung.notizLaden());
+    notiztitelfeld.setText(steuerung.notizTitelLaden());
   } 
   
   public void notizloeschenbutton_ActionPerformed(ActionEvent evt) {
@@ -497,7 +477,7 @@ public class GUI extends Frame {
     refresh();
   } 
   
-  public void refresh(){
+  public void refresh(){                                        //neue Titel ausgeben
     notizeinsbutton.setText(steuerung.notizTitelLaden(1));
     notizzweibutton.setText(steuerung.notizTitelLaden(2));
     notizdreibutton.setText(steuerung.notizTitelLaden(3));
@@ -570,7 +550,7 @@ public class GUI extends Frame {
   public void hilfebutton_ActionPerformed(ActionEvent evt) {
     //sichtbar
     hilfetextScrollPane.setVisible(true);
-    hilfetext.setText(steuerung.hilfeLaden());
+    hilfetext.setText(steuerung.hilfeLaden());          //Text für Textfeld holen
     hilfeueberschrift.setVisible(true);
     
     //nicht sichtbar
