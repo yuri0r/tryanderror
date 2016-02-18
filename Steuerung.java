@@ -40,7 +40,14 @@ public class Steuerung {
   public void todoLoeschen(int i){
     todo.loeschen(i);
   }
-  
+  //NEU******************************
+  public String todoHolen(int i){
+    return todo.get(i);
+  }
+  public void todoEintraghinzufuegen(String text, int i){    //Text aus Feld auf Variable text speichern
+    todo.set(text,i);                                        //Methode in der Klasse Todo aufrufen und text übergeben
+  }
+  //NEUENDE*************************
   public void todoLoescheAlles(){
     todo.loescheAlles();
   }
@@ -70,8 +77,8 @@ public class Steuerung {
       default: return null; 
     } // end of switch
   }
-                                                  
-                                                  //Überladen der Methode -hier: Parameter wird übergeben ->beim refresh() damit er alle durchaktualisiert
+  
+  //Überladen der Methode -hier: Parameter wird übergeben ->beim refresh() damit er alle durchaktualisiert
   public String notizTitelLaden(int i){
     switch (i) {
       case  1: return notiz1.gettitel();     

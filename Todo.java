@@ -35,7 +35,16 @@ public class Todo {
   public void loeschen(int i){
     lm.removeElementAt(i);                            //Eintrag an bestimmter Stelle (i) entfernen
   }
+  //NEU  **************************************************************************
+  public void set(String newStr, int i){
+    lm.setElementAt(newStr, i);                            //Eintrag an bestimmter Stelle (i) bearbeiten 
+  }
   
+  public String get(int i){
+    Object e = lm.get(i);
+    return e.toString();                                       //Eintrag zurückgeben
+  }
+  //NEUENDE***************************************************************************
   public void speichern() {
     
     try {

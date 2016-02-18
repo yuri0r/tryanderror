@@ -98,7 +98,7 @@ public class GUI extends Frame {
     todobutton.setText("Todo-Liste");
     todobutton.setMargin(new Insets(2, 2, 2, 2));
     todobutton.setBorderPainted(true);
-    todobutton.setContentAreaFilled(true);            //Fläsche hinter Text gefüllt: true
+    todobutton.setContentAreaFilled(true);                  //Fläsche hinter Text gefüllt: true
     todobutton.addActionListener(new ActionListener() {      //ActionListener: wartet darauf, dass Maus den Button anklickt
       public void actionPerformed(ActionEvent evt) {          //wenn klick->
         todobutton_ActionPerformed(evt);                     //          Methode unten ausführen
@@ -174,6 +174,12 @@ public class GUI extends Frame {
     todoEintraghinzufuegen.addActionListener(new ActionListener() { 
       public void actionPerformed(ActionEvent evt) { 
         todoEintraghinzufuegen_ActionPerformed(evt);
+      }
+    });
+    
+    todoAuflistung.addMouseListener(new MouseAdapter() {
+      public void mousePressed(MouseEvent evt) {
+        todoAufistung_ActionPerformed(evt);
       }
     });
     todoEintraghinzufuegen.setVisible(false);
@@ -391,8 +397,19 @@ public class GUI extends Frame {
   } 
   
   public void todoEintraghinzufuegen_ActionPerformed(ActionEvent evt) {
-    steuerung.todoEintraghinzufuegen(todoEingabefeld.getText());     //Methode in Steuerung aufrufen und Text von dem Feld übergeben
-    todoEingabefeld.setText("");                                     //auf das Feld vorhandenen Text laden
+    int i=0;
+    if (todoAuflistung.isSelectionEmpty() ) {
+      steuerung.todoEintraghinzufuegen(todoEingabefeld.getText());     //Methode in Steuerung aufrufen und Text von dem Feld übergeben
+      todoEingabefeld.setText("");      
+    } else {
+      steuerung.todoEintraghinzufuegen(todoEingabefeld.getText(),i);
+      todoAuflistung.clearSelection();                                    //auf das Feld vorhandenen Text laden
+      todoEingabefeld.setText("");  
+    } // end of if-else  
+  }
+  
+  public void todoAufistung_ActionPerformed(MouseEvent evt){
+    todoEingabefeld.setText(steuerung.todoHolen(todoAuflistung.getSelectedIndex()));
   } 
   
   public void todoEintragLoeschen_ActionPerformed(ActionEvent evt) {    
@@ -407,7 +424,6 @@ public class GUI extends Frame {
   public void todoSpeichern_ActionPerformed(ActionEvent evt) {
     steuerung.allesSpeichern();
   } 
-   
   
   
   //Notiz***********************************************************************Notiz
