@@ -396,21 +396,26 @@ public class GUI extends Frame {
     notiztextfeldScrollPane.setVisible(false);
   } 
   
+  //Bearbeitet******
   public void todoEintraghinzufuegen_ActionPerformed(ActionEvent evt) {
     int i=0;
-    if (todoAuflistung.isSelectionEmpty() ) {
+    if (todoAuflistung.isSelectionEmpty() ) {                           //Eintrag ausgefählt? - nein = true
       steuerung.todoEintraghinzufuegen(todoEingabefeld.getText());     //Methode in Steuerung aufrufen und Text von dem Feld übergeben
-      todoEingabefeld.setText("");      
-    } else {
-      steuerung.todoEintraghinzufuegen(todoEingabefeld.getText(),i);
-      todoAuflistung.clearSelection();                                    //auf das Feld vorhandenen Text laden
+      todoEingabefeld.setText("");                                     //Eingabefeld leeren
+    } else {                                                            //       - ja = false
+      i = todoAuflistung.getSelectedIndex();                             //legt auf Variable i den Index des gewählten Eintrags
+      steuerung.todoEintraghinzufuegen(todoEingabefeld.getText(),i);    //Überladen!: Methode in Steuerung aufrufen und Text von dem Feld übergeben (mit zusätzlicher Angabe (i) wo Eintrag ersetzt werden soll)
+      todoAuflistung.clearSelection();                                  //macht das danach kein Eintrag mehr ausgewählt ist
       todoEingabefeld.setText("");  
     } // end of if-else  
   }
   
-  public void todoAufistung_ActionPerformed(MouseEvent evt){
-    todoEingabefeld.setText(steuerung.todoHolen(todoAuflistung.getSelectedIndex()));
+  public void todoAufistung_ActionPerformed(MouseEvent evt){           //beim Anklicken eines Eintrages - hole ausgewählten Eintrag in Eingabefeld
+    int i = todoAuflistung.getSelectedIndex();
+    String text = steuerung.todoHolen(i);                            
+    todoEingabefeld.setText(text);    
   } 
+  //bearbeitetENDE*************
   
   public void todoEintragLoeschen_ActionPerformed(ActionEvent evt) {    
     int pos = todoAuflistung.getSelectedIndex();                    //Ausgewählten Eintrag ermitteln und auf Variable pos speichern
