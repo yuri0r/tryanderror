@@ -570,9 +570,11 @@ public class GUI extends Frame {
   //Hilfe***********************************************************************Hilfe
   public void hilfebutton_ActionPerformed(ActionEvent evt) {
     //sichtbar
-    hilfetextScrollPane.setVisible(true);
     hilfetext.setText(steuerung.hilfeLaden());          //Text für Textfeld holen
+    hilfetext.setCaretPosition(0);
+    hilfetextScrollPane.setVisible(true);
     hilfeueberschrift.setVisible(true);
+    
     
     //nicht sichtbar
     startlogo.setVisible(false);

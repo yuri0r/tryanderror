@@ -1,1 +1,55 @@
-Test
+        Beim Start das Programms, erscheint ein Startbildschirm mit dem Logo
+        des Programms.
+         Auf der linken Seite befindet sich die Menüleiste mit 
+        den Punkten: Todo, Notizen, Kalender, Programm und Hilfe. Beim Aus-
+        wählen eines gewünschten Punktes gelangt man zum gewählten Punkt 
+        und kann dort entsprechend nach belieben agieren. 
+
+        Todo: 
+        	        Hier kann ein neuer Todo-Eintrag angelegt werden. 
+        	        Dafür muss im Eingabefeld oben ein Eintrag geschrieben 
+        	        werden. Anschließend wird auf „Hinzufügen“ geklickt und 
+	        der Eintrag erscheint an erster Stelle im Textfeld (ein Hin-
+	        zufügen per Enter-Tastendruck ist zur Zeit noch nicht 
+	        möglich). 
+	        Zum ändern eines Eintrages, benötigt es ledig-
+	        lich einen klick auf diesen im Textfeld und schon erscheint 
+	        der gewählte Eintrag im Textfeld, kann dort bearbeitet 
+	        werden und erneut hinzugefügt werden mit „Hinzufügen“. 
+	        Der Eintrag wird dann an zuvor gewählter Stelle über-
+	        schrieben. 
+	        Soll ein Eintrag komplett gelöscht werden, 
+	        muss dieser ausgewählt werden und anschließend der 
+	        Button „Löschen“ betätigt werden. Mit dem Button „Alles 
+	        löschen“ werden alle Eintrage gelöscht. 
+	        Veränderungen 
+	        werden am Ende mit klick den Buttons „Speichern“ ab-
+	        gespeichert, in den jeweiligen Text-Dateien.
+        Notizen: 
+	        Hier kann eine Notiz angelegt werden. Beim Auswählen 
+	        des Punktes Notiz in der Menüleiste links, wird schon 
+	        direkt im Textfeld ausgegeben, dass eine Notiz ausgewählt
+ 	        werden soll („wähle eine Notiz!“). Damit ist eine Notiz auf 
+	        der Rechten Seite gemeint (vier Buttons stehen unter dem
+	        „Speichern“-Button zur Verfügung). Ist eine Notiz gewählt 
+	        kann man nun im Textfeld direkt eingeben und mit 
+	        „Speichern“ wird die Notiz gespeichert. Möchte man noch 
+	        einen Titel für die Notiz hinzufügen, kann man dies tun, in-
+	        dem die Notiz rechts ausgewählt wird und der Titel im Text-
+	        feld oben dann eingegeben wird. Nach der Eingabe muss 
+	        auf den „Titel setzten“-Button gedrückt werden und der 
+	        Titel erscheint auf dem ausgewählten Notiz-Button rechts. 
+	        Um die Änderung zu speichern, muss erneut auf den 
+	        „Speichern“-Button gedrückt werden.
+ 	        Wird eine Notiz nicht 
+	        mehr benötigt, kann die ausgewählte Notiz mit dem Button
+	        „Löschen“ gelöscht werden. 
+        Kalender:
+	        Hier ...
+
+        Programm: 
+	        Hier erfährt man in wenigen Sätzen, den Grundgedanken 
+	        von „Kanotodo“.
+        Hilfe: 
+	        Hier werden die wichtigsten Grundlagen von „Kanotodo“ 
+	        erklärt und Anleitungen zum Programm gegeben.
